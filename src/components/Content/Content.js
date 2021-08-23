@@ -28,7 +28,7 @@ export default function Content() {
             placeholder="Username"
             value={username}
             onChange={(e) => {
-              setUsername(e.value);
+              setUsername(e.target.value);
               console.log("username: ", username);
             }}
           ></input>
@@ -39,7 +39,7 @@ export default function Content() {
             placeholder="Repository"
             value={repository}
             onChange={(e) => {
-              setRepository(e.value);
+              setRepository(e.target.value);
               console.log("repository: ", repository);
             }}
           ></input>
