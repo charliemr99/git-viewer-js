@@ -57,9 +57,16 @@ export default function Content() {
       </div>
       <div className="content">
         {commitsData ? (
-          <div className="content__commit_list">
+          <div className="content__commitcontainer">
             {commitsData.map((item, index) => {
-              return <Commit key={index} data={item} />;
+              return (
+                <Commit
+                  key={index}
+                  data={item}
+                  username={username}
+                  repository={repository}
+                />
+              );
             })}
           </div>
         ) : (
@@ -76,11 +83,46 @@ export default function Content() {
   );
 }
 
-export function Commit({ data }) {
+export function Commit({ data, username, repository }) {
+  const commitDate = new Date(data.commit.committer.date);
+  const currentDate = new Date();
+  const differenceTime = currentDate.getTime() - commitDate.getTime();
+
+  function msToTime(duration) {
+    var milliseconds = Math.floor((duration % 1000) / 100),
+      seconds = Math.floor((duration / 1000) % 60),
+      minutes = Math.floor((duration / (1000 * 60)) % 60),
+      hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
+
+    console.log(seconds, minutes, hours);
+    hours = hours < 10 ? "0" + hours : hours;
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+    return `commited ${hours} hours, ${minutes} minutes and ${seconds} seconds ago.`;
+  }
+
   console.log("commit: ", data);
   return (
     <div className="commit">
-      <div className="commit_title">{data.commit.message}</div>
+      <div className="commit_title">
+        <div className="commit_picture">
+          <img
+            src={data.author.avatar_url}
+            style={{ width: "4vh", height: "4vh" }}
+          />
+        </div>
+        <div className="commit_data">
+          <a
+            href={`https://github.com/${username}/${repository}/commit/${data.sha}`}
+          >
+            {data.commit.message}
+          </a>
+          <small>
+            <strong>{data.author.login}</strong> - {msToTime(differenceTime)}
+          </small>
+        </div>
+      </div>
     </div>
   );
 }

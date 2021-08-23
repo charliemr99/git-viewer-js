@@ -39,15 +39,62 @@
   height: 78vh;
 }
 
-.content__commit_list {
-  border-radius: 1vh;
-  border-color: #8b949e;
-  border-width: 3px;
+.content__commitcontainer {
+  border: 1px solid #8b949e;
+  border-radius: 16px;
+  overflow: hidden;
   width: 80%;
-  height: 80%;
+  height: max-content;
 }
 
 .commit {
-  justify-content: flex-start;
+  padding: 1vh 1vw;
+  box-sizing: border-box;
+  width: 100%;
+  text-align: start;
   color: white;
+  border-bottom: 1px solid #8b949e;
+}
+
+.commit:hover {
+  background-color: #161b22;
+}
+
+.commit:last-of-type {
+  border-bottom: 0;
+}
+
+.commit_title {
+  display: flex;
+  align-items: center;
+}
+
+.commit_data {
+  display: flex;
+  flex-direction: column;
+}
+.commit_data a {
+  font-weight: bold;
+  margin: 0;
+  margin-left: 1vw;
+  display: block;
+  width: fit-content;
+  text-decoration: none;
+  color: white;
+}
+
+.commit_data a:hover {
+  border-bottom: 1px solid white;
+}
+
+.commit_title small {
+  padding-left: 1vw;
+}
+
+.commit_title img {
+  border-radius: 50%;
+}
+
+.commit_picture {
+  width: max-content;
 }
