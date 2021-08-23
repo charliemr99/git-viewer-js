@@ -1,0 +1,53 @@
+.name-bar {
+  display: flex;
+  background-color: #101113;
+  align-items: center;
+}
+
+.name-bar img {
+  padding: 2vw;
+  width: 2vh;
+  height: 2vh;
+}
+
+.name-bar__userandrepo {
+  display: flex;
+  color: white;
+}
+
+.name-bar__userandrepo input {
+  background-color: transparent;
+  color: white;
+  border-width: 0;
+  font-size: 3vw;
+  padding: 1vh;
+  margin: 0;
+  width: max-content;
+}
+
+.name-bar__userandrepo__search {
+  background-color: #1c1e22;
+  margin-left: auto;
+}
+
+.content {
+  display: flex;
+  background-color: #101113;
+  height: max-content;
+  justify-content: center;
+  align-items: center;
+  height: 78vh;
+}
+
+.content__commit_list {
+  border-radius: 1vh;
+  border-color: #8b949e;
+  border-width: 3px;
+  width: 80%;
+  height: 80%;
+}
+
+.commit {
+  justify-content: flex-start;
+  color: white;
+}

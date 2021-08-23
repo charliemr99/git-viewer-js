@@ -1,8 +1,8 @@
-export const fetchGit = (
+export default function fetchGit(
   callback = null,
   username = "charliemr99",
   repo = "git-viewer"
-) => {
+) {
   var myHeaders = new Headers();
   myHeaders.append("Accept", "application/vnd.github.v3+json");
 
@@ -17,6 +17,15 @@ export const fetchGit = (
     requestOptions
   )
     .then((response) => response.text())
-    .then((result) => console.log(result))
+    .then((response) => {
+      const result = JSON.parse(response);
+      if (callback) {
+        callback(result);
+        console.log("result: ", result);
+      } else {
+        console.error("no callback");
+        console.log("result: ", result);
+      }
+    })
     .catch((error) => console.log("error", error));
-};
+}
