@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+# Getting Started with Git Viewer
+
+Git Viewer is a simple app for visualizing any public GitHub commits on any project. Just press search button after completing username and repository name and tada!, you get a list of commits for your repo!.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
